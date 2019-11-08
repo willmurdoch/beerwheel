@@ -11,6 +11,15 @@ h1{
   margin: 0 0 1rem;
 }
 
+button{
+  font-size: 50px;
+  background: #3e3935;
+  color: #f3e4b2;
+  padding: 0.25em 1em;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
 .wheel {
   position: relative;
   width: 500px;

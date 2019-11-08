@@ -6,5 +6,28 @@ block content
   script(src="/socket.io/socket.io.js")
   script.
     function spin(){
-      response.io.emit("socketToMe", "users");
+      var req;
+      // Browser compatibility check          
+      if (window.XMLHttpRequest) {
+         req = new XMLHttpRequest();
+          } else if (window.ActiveXObject) {
+
+       try {
+         req = new ActiveXObject("Msxml2.XMLHTTP");
+       } catch (e) {
+
+         try {
+           req = new ActiveXObject("Microsoft.XMLHTTP");
+         } catch (e) {}
+       }
+
+      }
+
+
+      var req = new XMLHttpRequest();
+      req.open("GET", "spin", true);
+      req.onreadystatechange = function () {
+          //document.getElementById('divTxt').innerHTML = "Contents : " + req.responseText;
+      }
+      req.send(null);
     }
