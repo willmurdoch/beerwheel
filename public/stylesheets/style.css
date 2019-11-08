@@ -1,41 +1,64 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0 50px;
+  font-family: impact, serif;
+  font-size: 16px;
   text-align: center;
   background: #f4e4b3;
 }
-h1{
-  color: #3f3a37;
-  font-size: 50px;
-  text-transform: uppercase;
-  margin: 0 0 1rem;
+#logo{
+  height: 120px;
+  width: auto;
+  margin-bottom: 40px;
+  position: absolute;
+  top: 20px;
+  left: 40px;
+}
+@media (max-width: 900px){
+  #logo{
+    width: 175px;
+    height: auto;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
 }
 
 button{
-  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: impact;
+  letter-spacing: 0.05em;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  font-size: 10vh;
   background: #3e3935;
   color: #f3e4b2;
   padding: 0.25em 1em;
-  margin-top: 1rem;
   text-transform: uppercase;
 }
 
 .wheel {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  width: 550px;
+  height: 550px;
+  left: 50%;
 }
 
 .wheel .arm {
   position: absolute;
-  width: 75px;
-  height: 20px;
-  background: #000;
-  left: -37px;
-  top: 50%;
-  margin-top: -10px;
-  z-index: 5;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 50px solid red;
+  left: 50%;
+  margin-left: -25px;
+  top: -15px;
+  z-index: 2;
 }
 
 #wheelImg {
@@ -44,8 +67,8 @@ button{
   height: auto;
   left: 0;
   top: 0;
-  -webkit-transform-origin: center 52%;
-          transform-origin: center 52%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 #wheelImg.spinning{
   -webkit-transition: all 5s ease-out;
