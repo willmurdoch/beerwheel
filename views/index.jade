@@ -1,11 +1,30 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1="Wheel of Beer"
+  div(class="wheel")
+    span(class="arm")
+    img(id="wheelImg", src="/img/wheel.png")
   script(src="/socket.io/socket.io.js")
   script.
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
     var socket = io('//'+document.location.hostname+':'+document.location.port);
-    socket.on('socketToMe', function (data) {
-      console.log(data);
+    var myTimeout = null;
+    var myRotate = 0;
+    socket.on('spin', function (data) {
+      if(myTimeout === null){
+        var myWheel = document.getElementById('wheelImg');
+        var myRandom = getRandomInt(720, 1800);
+        myRotate += myRandom;
+        myWheel.classList.add('spinning');
+        myWheel.style.transform = "rotate(" + myRotate +  "deg)";
+        myTimeout = setTimeout(function(){
+          myWheel.classList.remove('spinning');
+          myTimeout = null;
+        }, 5500);
+      }
     });

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1="Wheel of Beer"
+  button(onclick='spin()') Spin
+  script(src="/socket.io/socket.io.js")
+  script.
+    function spin(){
+      response.io.emit("socketToMe", "users");
+    }

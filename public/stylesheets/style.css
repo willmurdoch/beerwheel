@@ -1,8 +1,44 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  background: #f4e4b3;
+}
+h1{
+  color: #3f3a37;
+  font-size: 50px;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
 }
 
-a {
-  color: #00B7FF;
+.wheel {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.wheel .arm {
+  position: absolute;
+  width: 75px;
+  height: 20px;
+  background: #000;
+  left: -37px;
+  top: 50%;
+  margin-top: -10px;
+  z-index: 5;
+}
+
+#wheelImg {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0;
+  top: 0;
+  -webkit-transform-origin: center 52%;
+          transform-origin: center 52%;
+}
+#wheelImg.spinning{
+  -webkit-transition: all 5s ease-out;
+  transition: all 5s ease-out;
 }
